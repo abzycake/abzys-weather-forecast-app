@@ -29,7 +29,7 @@ $(document).ready(function () {
         displayCurrentWeather(data);
         addCityToHistory(data.name);
 
-        // Fetch forecast data
+        // fetches forecast data from the API
         return fetch(`${apiUrl}/forecast?q=${cityName}&appid=${apiKey}&units=metric`);
       })
       .then(response => {
@@ -43,7 +43,7 @@ $(document).ready(function () {
       })
       .catch(error => {
         console.error('Error:', error.message);
-        // Alert the user about the error
+        // error handling
         alert('An error occurred while fetching weather data. Please try again later.');
       });
   }
@@ -73,7 +73,7 @@ $(document).ready(function () {
   }
 
 function displayForecast(data) {
-  forecastContainer.empty(); // Clear previous forecast
+  forecastContainer.empty(); // clears previous forecast
   const forecastData = data.list;
   const uniqueDates = new Set();
 
@@ -86,12 +86,12 @@ function displayForecast(data) {
     const date = new Date(dt * 1000);
     const formattedDate = formatDate(date);
 
-    // Ensure the forecast starts from tomorrow and includes the next five consecutive days
+    // makes sure the forecast begins tomorrow rather than having duplicate cards for today
     if (date.getDate() !== today.getDate() && date >= tomorrow && uniqueDates.size < 5) {
       if (!uniqueDates.has(formattedDate)) {
         const weatherDescription = weather[0].description;
 
-        // Create a new card for each forecast item
+        // creates new cards per day
         const forecastItem = $('<div class="forecast-card"></div>');
         forecastItem.html(`
           <h2>${formattedDate}</h2>
