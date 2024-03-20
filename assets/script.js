@@ -71,34 +71,28 @@ $(document).ready(function () {
     });
     searchHistoryContainer.append(historyItem);
   }
-
+  
   function displayForecast(data) {
     forecastContainer.empty(); // Clear previous forecast
-    const forecastData = data.list;
-    const uniqueDates = new Set();
-
+    const forecastData = data.list.slice(1, 6); // Skip the first item (today) and get the next five items
     forecastData.forEach(item => {
       const { dt, main, weather } = item;
       const date = new Date(dt * 1000);
       const formattedDate = formatDate(date);
+      const weatherDescription = weather[0].description;
 
-      if (!uniqueDates.has(formattedDate)) {
-        const weatherDescription = weather[0].description;
-
-        // Create a new card for each forecast item
-        const forecastItem = $('<div class="forecast-card"></div>');
-        forecastItem.html(`
-          <h2>${formattedDate}</h2>
-          <p>Temperature: ${main.temp}°C</p>
-          <p>Humidity: ${main.humidity}%</p>
-          <p>Weather: ${weatherDescription}</p>
-        `);
-        forecastContainer.append(forecastItem);
-
-        uniqueDates.add(formattedDate);
-      }
+      // Create a new card for each forecast item
+      const forecastItem = $('<div class="forecast-card"></div>');
+      forecastItem.html(`
+        <h2>${formattedDate}</h2>
+        <p>Temperature: ${main.temp}°C</p>
+        <p>Humidity: ${main.humidity}%</p>
+        <p>Weather: ${weatherDescription}</p>
+      `);
+      forecastContainer.append(forecastItem);
     });
-  }
+}
+
 
   function formatDate(date) {
     const options = { weekday: 'long', month: 'short', day: 'numeric' };
