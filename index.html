@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard</title>
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body>
+  <header class="container-fluid text-center text-white p-2 header">
+    <h1>Weather Dashboard</h1>
+  </header>
+
+  <div class="container-fluid" style="max-width: 1400px">
+    <div class="row">
+      <aside class="col-lg-3 pb-3">
+        <h2 id="form-heading" class="m-2 h3 form-label">Search for a City:</h2>
+        <form id="search-form" class="form mr-2">
+          <div class="form-inline list-group w-100 m-1">
+            <input class="form-input weather-search mb-3" type="text" id="search-input" placeholder="Type a city here..." aria-labelledby="form-heading" aria-controls="today forecast" />
+            <div class="group-append">
+              <button type="submit" class="btn search-button btn-primary w-100" id="search-button" aria-label="submit search">Search</button>
+              <hr class="hr weather-hr" />
+            </div>
+          </div>
+        </form>
+        <div class="list-group" id="search-history"></div>
+      </aside>
+
+      <div class="col-lg-9 pb-3">
+        <section id="current-weather" class="m-1 mt-3" role="region" aria-live="polite"></section>
+        <div>
+          <h4 class="m-1 mt-3">5-Day Forecast:</h4>
+        </div>
+        <section id="forecast" class="row m-1 mt-4 d-flex justify-content-between" role="region" aria-live="polite"></section>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="./assets/script.js"></script>
+</body>
+</html>

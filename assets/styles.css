@@ -1,0 +1,119 @@
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body background color */
+body {
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif; /* Change font if needed */
+}
+
+/* Container for the entire page */
+.container {
+  max-width: 1200px; /* Adjust as needed */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header styling */
+.header {
+  background-color: #0dd0ff; /* Blue color */
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* Search form styling */
+#search-form {
+  margin-bottom: 20px;
+  padding-left: 50px;
+}
+
+#search-form input[type="text"] {
+  width: calc(100% - 100px); /* Adjust width as needed */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+}
+
+#search-form button {
+  width: 100px;
+  padding: 10px;
+  background-color: #0dd0ff;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  color: white;
+  cursor: pointer;
+}
+
+/* Current weather styling */
+#current-weather {
+  width: 1165px;
+  margin: auto;
+  background-color: #fff;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* Forecast styling */
+#forecast {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.forecast-item {
+  width: calc(20% - 20px); /* Adjust width as needed */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* Search history styling */
+#search-history {
+  width: 1165px;
+  margin: auto;
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.forecast-card {
+  background-color: #f0f0f0;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin: auto;
+}
+
+.forecast-card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.forecast-card p {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.col-lg-3 {
+  order: -1; /* Move the left column to the first position */
+}
+
+h2 {
+  padding-left: 50px;
+}
+
+h4 {
+  padding-left: 25px;
+}
