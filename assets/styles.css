@@ -1,39 +1,34 @@
-/* Reset default margin and padding */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body background color */
 body {
   background-color: #f0f0f0;
   font-family: Arial, sans-serif; /* Change font if needed */
 }
 
-/* Container for the entire page */
 .container {
-  max-width: 1200px; /* Adjust as needed */
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
-/* Header styling */
 .header {
-  background-color: #0dd0ff; /* Blue color */
+  background-color: #0dd0ff;
   color: white;
   text-align: center;
   padding: 20px 0;
 }
 
-/* Search form styling */
 #search-form {
   margin-bottom: 20px;
   padding-left: 50px;
 }
 
 #search-form input[type="text"] {
-  width: calc(100% - 100px); /* Adjust width as needed */
+  width: calc(100% - 100px); 
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px 0 0 5px;
@@ -49,7 +44,6 @@ body {
   cursor: pointer;
 }
 
-/* Current weather styling */
 #current-weather {
   width: 1165px;
   margin: auto;
@@ -61,14 +55,13 @@ body {
   margin-bottom: 20px;
 }
 
-/* Forecast styling */
 #forecast {
   display: flex;
   flex-wrap: wrap;
 }
 
 .forecast-item {
-  width: calc(20% - 20px); /* Adjust width as needed */
+  width: calc(20% - 20px);
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
@@ -76,7 +69,6 @@ body {
   margin-bottom: 20px;
 }
 
-/* Search history styling */
 #search-history {
   width: 1165px;
   margin: auto;
@@ -107,7 +99,7 @@ body {
 }
 
 .col-lg-3 {
-  order: -1; /* Move the left column to the first position */
+  order: -1; 
 }
 
 h2 {
