@@ -71,28 +71,41 @@ $(document).ready(function () {
     });
     searchHistoryContainer.append(historyItem);
   }
-  
-  function displayForecast(data) {
-    forecastContainer.empty(); // Clear previous forecast
-    const forecastData = data.list.slice(1, 6); // Skip the first item (today) and get the next five items
-    forecastData.forEach(item => {
-      const { dt, main, weather } = item;
-      const date = new Date(dt * 1000);
-      const formattedDate = formatDate(date);
-      const weatherDescription = weather[0].description;
 
-      // Create a new card for each forecast item
-      const forecastItem = $('<div class="forecast-card"></div>');
-      forecastItem.html(`
-        <h2>${formattedDate}</h2>
-        <p>Temperature: ${main.temp}°C</p>
-        <p>Humidity: ${main.humidity}%</p>
-        <p>Weather: ${weatherDescription}</p>
-      `);
-      forecastContainer.append(forecastItem);
-    });
+function displayForecast(data) {
+  forecastContainer.empty(); // Clear previous forecast
+  const forecastData = data.list;
+  const uniqueDates = new Set();
+
+  const today = new Date();
+  const tomorrow = new Date(today);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+
+  forecastData.forEach(item => {
+    const { dt, main, weather } = item;
+    const date = new Date(dt * 1000);
+    const formattedDate = formatDate(date);
+
+    // Ensure the forecast starts from tomorrow and includes the next five consecutive days
+    if (date.getDate() !== today.getDate() && date >= tomorrow && uniqueDates.size < 5) {
+      if (!uniqueDates.has(formattedDate)) {
+        const weatherDescription = weather[0].description;
+
+        // Create a new card for each forecast item
+        const forecastItem = $('<div class="forecast-card"></div>');
+        forecastItem.html(`
+          <h2>${formattedDate}</h2>
+          <p>Temperature: ${main.temp}°C</p>
+          <p>Humidity: ${main.humidity}%</p>
+          <p>Weather: ${weatherDescription}</p>
+        `);
+        forecastContainer.append(forecastItem);
+
+        uniqueDates.add(formattedDate);
+      }
+    }
+  });
 }
-
 
   function formatDate(date) {
     const options = { weekday: 'long', month: 'short', day: 'numeric' };
